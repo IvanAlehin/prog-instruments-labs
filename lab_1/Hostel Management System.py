@@ -23,7 +23,7 @@ def date():
     t = now.strftime("%H:%M")
     s1 = now.strftime("%H:%M,%Y-%m-%d")
     s1 = str(s1)
-    return s1 #returns Current Date And Time In String
+    return s1  # returns Current Date And Time In String
 
 base = Tk()
 base.title("HOSTEL MANAGEMENT SYSTEM")
@@ -140,17 +140,17 @@ def main():
             bed2 = None
             bed3 = None
             if G == 1:
-                f1 = open("room_info_boys.txt","r")
+                f1 = open("room_info_boys.txt", "r")
                 bed1 = "B1"
                 bed2 = "B2"
                 bed3 = "B3"
-            elif G==2:
-                f1 = open("room_info_girls.txt","r")
+            elif G == 2:
+                f1 = open("room_info_girls.txt", "r")
                 bed1 = "G1"
                 bed2 = "G2"
                 bed3 = "G3"
-            elif G==0:
-                f1 = open("room_info_others.txt","r")
+            elif G == 0:
+                f1 = open("room_info_others.txt", "r")
                 bed1 = "O1"
                 bed2 = "O2"
                 bed3 = "O3"
@@ -266,9 +266,9 @@ def main():
             r5 = Label(base, text="(B1 B2 B3)", font=("Arial 10 bold"), bg="silver", fg="black")
             r5.place(x=1040, y=640)
             r6 = Label(base, text="( Girl = G1 )", font=("Arial 15 bold"), bg="silver", fg="black")
-            r6.place(x=1350,y=570)
-            r7 = Label(base, text="( Other = O1)",font=("Arial 15 bold"), bg="silver", fg="black")
-            r7.place(x=1350,y=610)
+            r6.place(x=1350, y=570)
+            r7 = Label(base, text="( Other = O1)", font=("Arial 15 bold"), bg="silver", fg="black")
+            r7.place(x=1350, y=610)
             def student():
                 global G
                 bed1 = None
@@ -296,7 +296,7 @@ def main():
                     bed2 = "B2"
                     bed3 = "B3"
                 f1 = open("student_info.txt", "a")
-                f2 = open(file_name,"a")
+                f2 = open(file_name, "a")
                 n = str(fir_name_entry.get()) + " "
                 b = str(r4.get()).upper()
                 ln = str(last_name_entry.get()).lower()
@@ -332,8 +332,8 @@ def main():
                         for oneline in fdata_ls:
                             if oneline.startswith(rom + ",") and oneline.__contains__(","+bed2):
                                 # write date
-                                new_oneline = oneline.replace(","+bed2+"," , "," + c + ",")
-                                new_oneline2 = new_oneline.replace(",NOT," , "," + rdate + ",")
+                                new_oneline = oneline.replace(","+bed2+",", "," + c + ",")
+                                new_oneline2 = new_oneline.replace(",NOT,", "," + rdate + ",")
                                 fobj.write(new_oneline)
                             else:
                                 fobj.write(oneline)
@@ -341,8 +341,8 @@ def main():
                         for oneline in fdata_ls:
                             if oneline.startswith(rom + ",") and oneline.__contains__(","+bed3):
                                 # write date
-                                new_oneline = oneline.replace(","+bed3+"," , "," + c + ",")
-                                new_oneline2 = new_oneline.replace(",NOT," , "," + rdate + ",")
+                                new_oneline = oneline.replace(","+bed3+",", "," + c + ",")
+                                new_oneline2 = new_oneline.replace(",NOT,", "," + rdate + ",")
                                 fobj.write(new_oneline)
                             else:
                                 fobj.write(oneline)
@@ -351,16 +351,16 @@ def main():
                 l = Label(base, text="Student Added Successfully....!", font=("Arial 15 bold"), bg='silver',
                           fg="black")
                 l.place(x=1150, y=650)
-            add_student = Button(base, text="Add Student", font=("Arial 20 bold"), bg="white", fg="black" ,command=student)
+            add_student = Button(base, text="Add Student", font=("Arial 20 bold"), bg="white", fg="black", command=student)
             add_student.place(x=1040, y=700)
 
         c1 = IntVar()
         a = Radiobutton(base, text="Male", bg="silver", fg="black", font=("Arial 15 bold"), variable=c1, value=1, command=selected)
         b = Radiobutton(base, text="Female", bg="silver", fg="black", font=("Arial 15 bold"), variable=c1, value=2, command=selected)
         c = Radiobutton(base, text="Other", bg="silver", fg="black", font=("Arial 15 bold"), variable=c1, value=0, command=selected)
-        a.place(x=490,y=580)
-        b.place(x=580,y=580)
-        c.place(x=680,y=580)
+        a.place(x=490, y=580)
+        b.place(x=580, y=580)
+        c.place(x=680, y=580)
         continu = Button(base, text="Continue", font=("Arial 15 bold"), bg="white", command=available_roome)
         continu.place(x=490, y=670)
 
@@ -377,8 +377,8 @@ def main():
         n_rm_n.place(x=500, y=300)
         rm_n_entry = Entry(base, width=20, font=("Arial 15 bold"))
         rm_n_entry.place(x=750, y=303)
-        gender = Label(base,text="Gender", font=("Arial 20 bold"), bg="silver", fg="black")
-        gender.place(x=500,y=350)
+        gender = Label(base, text="Gender", font=("Arial 20 bold"), bg="silver", fg="black")
+        gender.place(x=500, y=350)
 
         global G
         G = 1
@@ -404,19 +404,19 @@ def main():
             file_name = ""
             bed1 = bed2 = bed3 = None
             r = (rm_n_entry.get())
-            if G==1:
+            if G == 1:
                 bed1 = "B1"
                 bed2 = "B2"
                 bed3 = "B3"
                 file_name = "room_info_boys.txt"
                 f2 = open(file_name, "r")
-            if G==2:
+            if G == 2:
                 bed1 = "G1"
                 bed2 = "G2"
                 bed3 = "G3"
                 file_name = "room_info_girls.txt"
                 f2 = open(file_name, "r")
-            if G==0:
+            if G == 0:
                 bed1 = "O1"
                 bed2 = "O2"
                 bed3 = "O3"
