@@ -15,7 +15,10 @@ for file_name in file_names:
         print(f"File {file_name} already exists.")
 
 
-def date():
+def date() -> str:
+    """
+    Возвращает текущую дату и время в строковом формате.
+    """
     from datetime import datetime
     # current date time
     now = datetime.now()
@@ -37,14 +40,20 @@ canvas.place(x=330, y=130)
 G = 1
 
 
-def main():
+def main() -> None:
+    """
+    Главная функция, отображающая главное меню.
+    """
     global G
     canvas = Canvas(base, bg='lightseagreen', height=675, width=310)
     canvas.place(x=-1, y=100)
     can = Canvas(base, bg='silver', height=675, width=1500)
     can.place(x=320, y=105)
 
-    def add_stud():
+    def add_stud() -> None:
+        """
+        Функция для добавления нового студента.
+        """
         canvas = Canvas(base, bg='silver', height=675, width=1210)
         canvas.place(x=320, y=105)
         first_name = Label(base, text="First Name", font=("Arial 15 bold"), bg='silver', fg="black")
@@ -110,7 +119,10 @@ def main():
         gender.place(x=400, y=580)
         G = 1
         
-        def selected():
+        def selected() -> None:
+            """
+            Обработчик выбора пола.
+            """
             global G
             if c1.get() == 1:
                 G = 1
@@ -131,7 +143,10 @@ def main():
         b.place(x=580, y=580)
         c.place(x=680, y=580)
         
-        def available_roome():
+        def available_roome() -> None:
+            """
+            Отображение доступных комнат.
+            """
             rooms_availble = Label(base, text="Rooms Available", font=("Arial 20 bold"), bg="lightseagreen",
                                    fg="white", padx=140)
             rooms_availble.place(x=1005, y=110)
@@ -273,7 +288,10 @@ def main():
             r7 = Label(base, text="( Other = O1)", font=("Arial 15 bold"), bg="silver", fg="black")
             r7.place(x=1350, y=610)
             
-            def student():
+            def student() -> None:
+                """
+                Добавление студента в выбранную комнату.
+                """
                 global G
                 bed1 = None
                 bed2 = None
@@ -370,7 +388,10 @@ def main():
         line = Canvas(base, height=670, width=2)
         line.place(x=1000, y=105)
         
-    def add_room():
+    def add_room() -> None:
+        """
+        Функция для добавления новой комнаты.
+        """
         canvas = Canvas(base, bg='silver', height=675, width=1210)
         canvas.place(x=320, y=105)
         h1 = Label(base, text="Add New Room", bg="dark slate grey", font=("Arial 20 bold"), fg="white", padx=500,
@@ -387,7 +408,10 @@ def main():
         global G
         G = 1
         
-        def selected():
+        def selected() -> None:
+            """
+            Обработчик выбора пола.
+            """
             global G
             if c1.get() == 1:
                 G = 1
@@ -406,7 +430,10 @@ def main():
         b.place(x=840, y=350)
         c.place(x=950, y=350)
         
-        def add():
+        def add() -> None:
+            """
+            Добавление новой комнаты.
+            """
             file_name = ""
             bed1 = bed2 = bed3 = None
             r = (rm_n_entry.get())
@@ -450,7 +477,10 @@ def main():
         ad_rm_btn = Button(base, text="Add Room", font=("Arial 20 bold"), bg="white", fg="black", command=add)
         ad_rm_btn.place(x=550, y=500)
 
-    def in_out_time():
+    def in_out_time() -> None:
+        """
+        Функция для записи времени входа и выхода.
+        """
         canvas = Canvas(base, bg='silver', height=675, width=1210)
         canvas.place(x=320, y=105)
 
@@ -470,7 +500,10 @@ def main():
         purpose_entry = Entry(base, width=20, font=("Arial 20 bold"))
         purpose_entry.place(x=620, y=270)
 
-        def save1():
+        def save1() -> None:
+            """
+            Сохранение информации о выходе.
+            """
             Id = str(out_time_entry.get())
             pur1 = str(purpose_entry.get())
             t = date()
@@ -499,7 +532,10 @@ def main():
         ot_entry_entry = Entry(base, width=20, font=("Arial 20 bold"))
         ot_entry_entry.place(x=680, y=550)
 
-        def search_outtime():
+        def search_outtime() -> None:
+            """
+            Поиск информации о выходе.
+            """
             s_id = str(in_time_entry.get())
             fobj = open("inouttime.txt", "r")
             fdata_ls = fobj.readlines()
@@ -521,7 +557,10 @@ def main():
                 ot = Entry(base, width=20, textvariable=tv, font=("Arial 20 bold"))
                 ot.place(x=680, y=550)
 
-        def save2():
+        def save2() -> None:
+            """
+            Сохранение информации о входе.
+            """
             sel_opt = str(r_sel.get())
             s_id = str(in_time_entry.get())
             fobj = open("inouttime.txt", "r")
@@ -560,7 +599,10 @@ def main():
         remark.config(width=20, font=("Arial 15 bold"), fg="black")
         remark.place(x=680, y=610)
 
-    def visitor():
+    def visitor() -> None:
+        """
+        Создает форму для ввода информации о посетителях.
+        """
         canvas = Canvas(base, bg='silver', height=675, width=1210)
         canvas.place(x=320, y=105)
 
@@ -592,13 +634,22 @@ def main():
         st_name_entry = Entry(base, width=15, font=("Arial 20 "))
         st_name_entry.place(x=1250, y=200)
 
-        def search():
-            def reset():
+        def search() -> None:
+            """
+            Ищет студента по имени и выводит номер его комнаты.
+            """
+            def reset() -> None:
+                """
+                Сбрасывает форму поиска и поля ввода.
+                """
                 ot.destroy()
                 st_name_entry.delete(0, END)
                 st_name_entry.place(x=1250, y=200)
 
-            def add_visitor():
+            def add_visitor() -> None:
+                """
+                 Добавляет информацию о посетителе в файл.
+                """
                 vn = str(v_name_entry.get())
                 vcon = str(v_contact_entry.get())
                 vr = str(v_reason_entry.get())
@@ -645,11 +696,17 @@ def main():
         ser_btn = Button(base, text="Search", font=("Arial 20 bold"), command=search)
         ser_btn.place(x=1180, y=280)
 
-    def view_info():
+    def view_info() -> None:
+        """
+        Отображает информацию о студентах.
+        """
         canvas = Canvas(base, bg='silver', height=675, width=1215)
         canvas.place(x=320, y=105)
 
-        def all_girl_info():
+        def all_girl_info() -> None:
+            """
+            Отображает информацию обо всех студентах.
+            """
             canvas = Canvas(base, bg='silver', height=675, width=810)
             canvas.place(x=715, y=105)
             h1 = Label(base, text="Information Of Students", font=("Arial 20 bold"), bg="dark slate grey", fg="white",
@@ -696,7 +753,10 @@ def main():
                 if flag > 8:
                     break
 
-        def room_wise():
+        def room_wise() -> None:
+            """
+            Отображает информацию о студентах по номеру комнаты.
+            """
             canvas = Canvas(base, bg='silver', height=675, width=810)
             canvas.place(x=715, y=105)
             l1 = Label(base, text="Enter Room No.", font=("Arial 20 bold"), bg="silver", fg="black")
@@ -705,7 +765,10 @@ def main():
             l1_entry.place(x=1000, y=150)
             l1_entry.focus()
 
-            def search():
+            def search() -> None:
+                """
+                Ищет студентов в определенной комнате.
+                """
                 r_no = str(l1_entry.get())
                 f1 = open("student_info.txt", "r")
                 all_lines = f1.readlines()
@@ -764,7 +827,10 @@ def main():
         line = Canvas(base, height=680, width=5)
         line.place(x=710, y=105)
 
-    def leave_application():
+    def leave_application() -> None:
+        """
+        Создает форму заявки на отпуск.
+        """
         canvas = Canvas(base, bg='silver', height=675, width=1210)
         canvas.place(x=320, y=105)
         h1 = Label(base, text="Leave Application", bg="dark slate grey", font=("Arial 20 bold"), fg="white",
@@ -804,7 +870,10 @@ def main():
         date_entry = Entry(base, width=18, font=("Arial 20"))
         date_entry.place(x=700, y=500)
 
-        def leave_info():
+        def leave_info() -> None:
+            """
+            Сохраняет информацию о заявке на отпуск.
+            """
             i = str(id_entry.get())
             n = str(n_entry.get())
             r = str(r_entry.get())
@@ -855,7 +924,10 @@ pass_entry = Entry(base, width=17, font="Arial 20")
 pass_entry.place(x=650, y=355)
 
 
-def login():
+def login() -> None:
+    """
+    Проверяет имя пользователя и пароль.
+    """
     id = str(user_entry.get())
     key = str(pass_entry.get())
     if id == "codewithcurious.com" and key == "cwc":
