@@ -15,7 +15,6 @@ for file_name in file_names:
         print(f"File {file_name} already exists.")
 
 
-
 def date():
     from datetime import datetime
     # current date time
@@ -24,6 +23,7 @@ def date():
     s1 = now.strftime("%H:%M,%Y-%m-%d")
     s1 = str(s1)
     return s1  # returns Current Date And Time In String
+
 
 base = Tk()
 base.title("HOSTEL MANAGEMENT SYSTEM")
@@ -35,6 +35,8 @@ canvas = Canvas(base, bg='silver', height=575, width=800)
 canvas.place(x=330, y=130)
 
 G = 1
+
+
 def main():
     global G
     canvas = Canvas(base, bg='lightseagreen', height=675, width=310)
@@ -104,10 +106,10 @@ def main():
         place_entry = Entry(base, width="15", font=("Arial 15 bold"))
         place_entry.place(x=610, y=490)
 
-
         gender = Label(base, text="Gender", font=("Arial 15 bold"), bg="silver", fg="black")
         gender.place(x=400, y=580)
         G = 1
+        
         def selected():
             global G
             if c1.get() == 1:
@@ -128,6 +130,7 @@ def main():
         a.place(x=490, y=580)
         b.place(x=580, y=580)
         c.place(x=680, y=580)
+        
         def available_roome():
             rooms_availble = Label(base, text="Rooms Available", font=("Arial 20 bold"), bg="lightseagreen",
                                    fg="white", padx=140)
@@ -269,6 +272,7 @@ def main():
             r6.place(x=1350, y=570)
             r7 = Label(base, text="( Other = O1)", font=("Arial 15 bold"), bg="silver", fg="black")
             r7.place(x=1350, y=610)
+            
             def student():
                 global G
                 bed1 = None
@@ -366,6 +370,7 @@ def main():
 
         line = Canvas(base, height=670, width=2)
         line.place(x=1000, y=105)
+        
     def add_room():
         canvas = Canvas(base, bg='silver', height=675, width=1210)
         canvas.place(x=320, y=105)
@@ -382,6 +387,7 @@ def main():
 
         global G
         G = 1
+        
         def selected():
             global G
             if c1.get() == 1:
@@ -400,6 +406,7 @@ def main():
         a.place(x=750, y=350)
         b.place(x=840, y=350)
         c.place(x=950, y=350)
+        
         def add():
             file_name = ""
             bed1 = bed2 = bed3 = None
@@ -641,7 +648,6 @@ def main():
         ser_btn = Button(base, text="Search", font=("Arial 20 bold"), command=search)
         ser_btn.place(x=1180, y=280)
 
-
     def view_info():
         canvas = Canvas(base, bg='silver', height=675, width=1215)
         canvas.place(x=320, y=105)
@@ -839,6 +845,7 @@ def main():
     exit = Button(base, text="EXIT", font=("Arial 18 bold"), bg="white", padx=70, command=quit)
     exit.place(x=50, y=700)
 
+
 username = Label(base, text="Username", font=("Arial 25 bold"), bg="silver", fg="black")
 username.place(x=470, y=240)
 user_entry = Entry(base, width=17, font=("Arial 20"))
@@ -849,6 +856,7 @@ password = Label(base, text="Password", font=("Arial 25 bold"), bg="silver", fg=
 password.place(x=470, y=350)
 pass_entry = Entry(base, width=17, font="Arial 20")
 pass_entry.place(x=650, y=355)
+
 
 def login():
     id = str(user_entry.get())
@@ -867,3 +875,4 @@ login_btn = Button(base, text="Login", font=("Arial 25 bold"), bg="lightseagreen
 login_btn.place(x=650, y=440)
 
 base.mainloop()
+ 
