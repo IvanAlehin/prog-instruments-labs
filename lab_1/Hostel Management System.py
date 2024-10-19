@@ -352,9 +352,8 @@ def main():
                                 fobj.write(oneline)
                 fobj.close()
 
-                l = Label(base, text="Student Added Successfully....!", font=("Arial 15 bold"), bg='silver',
-                          fg="black")
-                l.place(x=1150, y=650)
+                success_label = Label(base, text="Student Added Successfully....!", font=("Arial 15 bold"), bg='silver', fg="black")
+                success_label.place(x=1150, y=650)
             add_student = Button(base, text="Add Student", font=("Arial 20 bold"), bg="white", fg="black", command=student)
             add_student.place(x=1040, y=700)
 
@@ -435,9 +434,8 @@ def main():
                 temp = str(i)
                 one_line = temp.split(',')
                 if one_line[0] == r:
-                    l = Label(base, text="Room Is Already Addded....!", font=("Arial 25 bold"), bg='silver',
-                              fg="black")
-                    l.place(x=650, y=600)
+                    room_added_label = Label(base, text="Room Is Already Addded....!", font=("Arial 25 bold"), bg='silver', fg="black")
+                    room_added_label.place(x=650, y=600)
                     f2.close()
                     count = 2
             f2.close()
@@ -446,9 +444,8 @@ def main():
                 f1 = open(file_name, "a")
                 f1.write(r + "," + bed1 + "," + bed2 + "," + bed3 + "," + q + "," + "\n")
                 f1.close()
-                l = Label(base, text="ROOM Successfully Added....!", font=("Arial 25 bold"), bg='silver',
-                          fg="black")
-                l.place(x=650, y=600)
+                room_added_label = Label(base, text="ROOM Successfully Added....!", font=("Arial 25 bold"), bg='silver', fg="black")
+                room_added_label.place(x=650, y=600)
 
         ad_rm_btn = Button(base, text="Add Room", font=("Arial 20 bold"), bg="white", fg="black", command=add)
         ad_rm_btn.place(x=550, y=500)
